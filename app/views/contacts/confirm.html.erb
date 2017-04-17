@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="set_contacts col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12">
+        <div class="row">
+            <h3>以下の内容で送信してもよろしいですか？</h3>
+        </div>
+        <%= form_for(@contact) do |f| %>
+            <%=f.hidden_field :name %>
+            <%=f.hidden_field :email %>    
+            <%=f.hidden_field :content %>
+            <div class="row">
+                <div class="cnfTitle col-xs-4">お名前</div>
+                <div class="cnfContent col-xs-8"><%= @contact.name %></div>
+            </div>
+            <div class="row">
+                <div class="cnfTitle col-xs-4">アドレス</div>
+                <div class="cnfContent col-xs-8"><%= @contact.email %></div>
+            </div>
+            <div class="row">
+                <div class="cnfTitle col-xs-4">入力内容</div>
+                <div class="cnfContent col-xs-8"><%= @contact.content %></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-push-6" >
+                    <%= f.submit 'この内容で送信する', class: 'btn btn-primary btn-block'%>
+                </div>
+        <% end %>  <%#PostがGetを上書いてしまうため、ここで一旦end%>
+                <div class="col-sm-6 col-sm-pull-6" >
+                    <%= form_for(@contact, url: new_contact_path, method: 'get') do |f| %>
+                        <%=f.hidden_field :name %>
+                        <%=f.hidden_field :email %>    
+                        <%=f.hidden_field :content %>
+                        <%=f.submit "入力画面へ戻る" , name: 'back', class: 'btn btn-secondary btn-block' %>
+                    <% end %>
+                </div>
+            </div>
+        
+    </div>
+</div>

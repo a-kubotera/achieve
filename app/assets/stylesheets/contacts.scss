@@ -1,0 +1,32 @@
+// Place all the styles related to the contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$myFont: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+
+
+.set_contacts{ //contacts用のsettingクラス
+    font-family:$myFont;
+    vertical-align:top;
+
+    .row{padding:10px 0;}
+    .title{
+        font-weight: 500;
+        text-align:left;
+        
+    }
+    .content{
+        text-align:left;
+    }
+    .cnfTitle{
+        text-align:right;
+        padding-right:0px;
+           &:after {
+            content: "：";
+            }
+    }
+    .cnfContent{
+        text-align:left;
+        padding-left:5px;
+        white-space: pre-wrap;
+    }
+}
