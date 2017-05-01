@@ -9,10 +9,10 @@
 
 n=1
 while n <=100
- Blog.Create(
-   title:'テスト投稿',
-   content:'ああああ',
-   user_id:n
+ Blog.create(
+   title: 'テスト投稿No'.n,
+   content: 'ああああ',
+   user_id: n
    )
    n = n + 1
 end
