@@ -13,3 +13,11 @@
                password_confirmation: password,
                )
 end
+n=1
+while n <=100
+ Blog.Create(
+   title:'テスト>>'.n,
+   content:'ああああ',
+   user_id:n
+   )
+end
