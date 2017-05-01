@@ -10,7 +10,7 @@
 n=1
 while n <=100
  Blog.create(
-   title: 'テスト投稿No'.n,
+   title: 'テスト投稿',
    content: 'ああああ',
    user_id: n
    )
