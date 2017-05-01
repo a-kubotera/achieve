@@ -16,8 +16,9 @@ end
 n=1
 while n <=100
  Blog.Create(
-   title:'テスト',
+   title:'テスト>>'.n,
    content:'ああああ',
    user_id:n
    )
+   n = n + 1
 end
