@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  
+
   resources:blogs,only:[:index,:new,:create,:edit,:update,:destroy] do
     collection do
       post:confirm
@@ -9,14 +9,17 @@ Rails.application.routes.draw do
   end
 
   resources:contacts,only:[:new,:create] do
-    collection do 
+    collection do
       post:confirm
     end
   end
-  
+
   root 'top#index'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -71,4 +74,3 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
