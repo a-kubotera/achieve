@@ -46,10 +46,7 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'
 gem 'rails_12factor', group: :production
 gem 'devise'
-<<<<<<< HEAD
 group :development do
   gem 'letter_opener_web'
 end
-=======
 gem 'faker'
->>>>>>> b5c50d356a77265a7a3af908b3c81baa459f83b1
