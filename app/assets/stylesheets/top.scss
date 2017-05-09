@@ -132,10 +132,14 @@ body {
   color: white;
   padding-top: 10px;
 }
-
+.field{
+  padding:10px;
+}
 //以下は課題デザイン用設定//
 .user_edit_setting{
-  div.row{padding:10px;}
+  div.row{padding:10px;
+    h3{@include fz_vw(8);}
+  }
   .title{
     font-size:1em;
     font-weight:bolder;
@@ -154,7 +158,6 @@ body {
     @media screen and (max-width: 520px) {
       @include fz_vw(8);
     }
-    
   }
 }
 
