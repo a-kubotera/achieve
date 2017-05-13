@@ -50,3 +50,5 @@ group :development do
   gem 'letter_opener_web'
 end
 gem 'faker'
+gem 'rails_admin'
+gem 'cancan'
