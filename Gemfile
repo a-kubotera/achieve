@@ -46,9 +46,12 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'
 gem 'rails_12factor', group: :production
 gem 'devise'
-group :development do
+group :development,:test do
   gem 'letter_opener_web'
+  gem 'pry-rails'
+  gem 'better_errors'
 end
 gem 'faker'
 gem 'rails_admin'
 gem 'cancan'
+gem 'activeresource'

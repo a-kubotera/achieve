@@ -1,0 +1,16 @@
+<h1>ポエム詳細</h1>
+<scetion class="content">
+  <div class="row">
+    <div class="poem_setting col-md-8 col-md-offset-2 col-sm-10">
+      <div class="row">
+        <div class="col-md-offset-2 col-xs-4 col-md-2 lbl">タイトル：</div>
+        <div class="col-xs-8 col-md-8 title"><%= @poem.title %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-2 col-xs-4 col-md-2 lbl">内容：</div>
+        <div class="col-xs-8 col-md-8 content"><%= @poem.content %></div>
+      </div>
+    </div>
+    <div class="col-xs-12"><%= link_to "一覧へ戻る", poems_path %></div>
+  </div>
+</scetion>

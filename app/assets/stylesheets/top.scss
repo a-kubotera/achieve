@@ -135,6 +135,7 @@ body {
 .field{
   padding:10px;
 }
+
 //以下は課題デザイン用設定//
 .user_edit_setting{
   div.row{padding:10px;
@@ -167,4 +168,20 @@ body {
   margin:5px 0px;
 }
 
-
+//ポエム関連
+.poem_setting{
+  > div {padding-bottom: 3px;}
+  > div > div{padding-left:0px;padding-right:0px;}
+  .title{
+    text-align: left;
+  }
+  .content{
+    text-align: left;
+    .dot{
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  .lbl{text-align:right;}
+}
