@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :poems, only: [:index,:show]
-
+  resources :herpoems, only: [:index,:show]
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
