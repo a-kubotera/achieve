@@ -1,3 +1,3 @@
-class Herpoem < ActiveRecord::Base
+class Herpoem
     include Her::Model
 end
