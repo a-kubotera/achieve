@@ -4,9 +4,9 @@
     <div class="poem_setting col-md-8 col-md-offset-2 col-sm-10">
       <% @herpoems.each do |poem| %>
         <div class="row">
-          <div class="col-xs-2 title"><%= poem.title %></div>
-          <div class="col-xs-8 content dot"><%= poem.content %></div>
-          <div class="col-xs-2"><%= link_to "SHOW", herpoem_path(poem.id), class:"btn btn-primary btn-xs" %></div>
+          <div class="col-xs-offset-2 col-xs-2 title"><%= poem.title %></div>
+          <div class="col-xs-5 content dot"><%= poem.content %></div>
+          <div class="col-xs-3"><%= link_to "SHOW", herpoem_path(poem.id), class:"btn btn-primary btn-xs" %></div>
         </div>
       <% end %>
     </div>
