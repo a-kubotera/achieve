@@ -11,32 +11,39 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="col-xs-3 col-sm-3 title"><%= f.label :メールアドレス %></div>  
-    <div class="col-xs-9 col-sm-9 content"><%= f.email_field :email, autofocus: true, class: "form-control" %></div>  
+    <div class="col-xs-3 col-sm-3 title"><%= f.label :メールアドレス %></div>
+    <div class="col-xs-9 col-sm-9 content"><%= f.email_field :email, autofocus: true, class: "form-control" %></div>
   </div>
   <div class="row">
-    <div class="col-xs-3 col-sm-3 title"><%= f.label :名前 %></div>  
-    <div class="col-xs-9 col-sm-9 content"><%= f.text_field :name, class: "form-control" %></div>  
+    <div class="col-xs-3 col-sm-3 title"><%= f.label :名前 %></div>
+    <div class="col-xs-9 col-sm-9 content"><%= f.text_field :name, class: "form-control" %></div>
   </div>
+  <% if @user.provider.blank? %>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
   <div class="alert alert-warning" role="alert">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
    <div class="row">
-    <div class="col-xs-3 col-sm-3 title"><%= f.label :password %></div>  
+    <div class="col-xs-3 col-sm-3 title"><%= f.label :password %></div>
     <div class="col-xs-9 col-sm-9 content"><%= f.password_field :password, autocomplete: "off", class: "form-control"  %></div>
     <div class="col-xs-offset-3 col-xs-9 info">変更したい場合だけ入力してください(<%= @minimum_password_length %>文字以上)</div>
   </div>
    <div class="row">
-    <div class="col-xs-3 col-sm-3 title"><%= f.label :password_confirmation %></div>  
+    <div class="col-xs-3 col-sm-3 title"><%= f.label :password_confirmation %></div>
     <div class="col-xs-9 col-sm-9 content"><%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %></div>
-    <div class="col-xs-offset-3 col-xs-9 info">新しいパスワードをもう一度入力してください。</div>    
-  </div> 
+    <div class="col-xs-offset-3 col-xs-9 info">新しいパスワードをもう一度入力してください。</div>
+  </div>
    <div class="row">
-    <div class="col-xs-3 col-sm-3 title"><%= f.label :current_password %></div> 
+    <div class="col-xs-3 col-sm-3 title"><%= f.label :current_password %></div>
     <div class="col-xs-9 col-sm-9 content"><%= f.password_field :current_password, autocomplete: "off", class: "form-control" %></div>
     <div class="col-xs-offset-3 col-xs-9 info">変更確定のため、現在のパスワードを入力してください。</div>
-  </div> 
-  <div class="row"> 
+  </div>
+  <% end %>
+  <div class="field">
+    <%= profile_img(@user) if profile_img(@user) %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+  <div class="row">
     <div class="col-xs-12 actions">
       <%= link_to "TOPへ戻る", :back, class:'btn btn-default btn_size' %>
       <%= f.submit "更新する", class:'btn btn-primary btn_size'%>
