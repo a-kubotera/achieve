@@ -42,7 +42,7 @@
     <div class="col-xs-3 col-sm-3 title">イメージ画像</div>
     <div class="col-xs-9 col-sm-9 content">
       <%= profile_img(@user) if profile_img(@user) %>
-      <%= f.file_field :avatar %>
+      <%= f.file_field :avatar%>
       <%= f.hidden_field :avatar_cache %>
     </div>
   </div>
