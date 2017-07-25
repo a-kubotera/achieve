@@ -54,7 +54,7 @@ group :development,:test do
   gem 'better_errors'
 end
 
-gem 'faker'
+gem 'faker','~> 1.1.2'
 gem 'rails_admin'
 gem 'cancan'
 gem 'activeresource'
