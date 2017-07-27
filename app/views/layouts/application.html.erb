@@ -55,7 +55,7 @@
           <li><%= link_to 'マイページ', edit_user_registration_path %></li>
           <li>
             <%= link_to notifications_index_path, class: "navbar-brand" do %>
-              <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count %></span></i>
+              <i class="fa fa-bell fa-1x"><span id="unread_count" style="font-size:80%;padding-left:5px;"><%= @notifications_count %></span></i>
             <% end %>
           </li>
         <% else %>
