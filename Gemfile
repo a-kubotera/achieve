@@ -68,3 +68,4 @@ gem 'omniauth-facebook'
 #画像のアップロード用
 gem 'carrierwave'
 gem 'rmagick'
+gem 'pusher'
