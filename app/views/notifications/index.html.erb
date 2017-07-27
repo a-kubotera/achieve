@@ -1,8 +1,8 @@
 
 <section class="container">
-  <div class="row">
-    <h2>お知らせ</h2>
-    <% @notifications.each do |notification| %>
+  <h2>お知らせ</h2>
+  <% @notifications.each do |notification| %>
+  <div class="row" style="padding-bottom:5px;">
       <div class="col-xs-offset-2 col-xs-1">
         <%= link_to "#{chk_comment(notification)}", blog_path(notification.comment.blog, notification_id: notification.id),class:"btn btn-info btn-sm"  %>
       </div>
@@ -13,6 +13,6 @@
       <div class="col-xs-3">
         <%= notification.created_at %>
       </div>
-    <% end %>
   </div>
+    <% end %>
 </section>
