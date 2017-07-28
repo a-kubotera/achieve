@@ -4,7 +4,9 @@ module NotificationsHelper
   end
   def chk_comment(notice)
     @bool = notice.read
-    unless @bool
+    if @bool
+      return "既読"
+    else
       return "未読"
     end
   end
