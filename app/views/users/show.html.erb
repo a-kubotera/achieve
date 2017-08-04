@@ -18,11 +18,7 @@
       <% @follow.each do |f| %>
         <div class ="row">
           <div class="col-xs-4 showFollow__avatar">
-            <% if f.avatar? %>
-              <%= image_tag f.avatar %>
-            <% else %>
-              <%= image_tag "no_image.png" %>
-            <% end %>
+            <%= profile_img(@follow)%>
           </div>
           <div class="col-xs-8 showFollow__name">
             <%= f.name %><br>
@@ -36,11 +32,7 @@
       <% @followed.each do |f| %>
         <div class ="row">
           <div class="col-xs-4 showFollow__avatar">
-            <% if f.avatar? %>
-              <%= image_tag f.avatar %>
-            <% else %>
-              <%= image_tag "no_image.png" %>
-            <% end %>
+            <%= profile_img(@followed)%>
           </div>
           <div class="col-xs-8 showFollow__name">
             <%= f.name %><br>
