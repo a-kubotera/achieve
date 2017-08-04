@@ -1,57 +1,53 @@
 <div class="container">
   <h2>フォロー詳細</h2>
-  <div class ="row">
-  <div class="col-xs-4 show_user">
-    <h3>マイデータ</h3>
-    <div class="showUser__avatar--large">
-      <% if @user.avatar? %>
-        <%= image_tag @user.avatar %>
-      <% else %>
-        <%= image_tag "no_image.png" %>
+  <div class="row">
+    <div class="col-xs-4 show_user">
+      <h3>マイデータ</h3>
+      <div class="showUser__avatar--large">
+        <%= profile_img(@user)%>
+      </div>
+      <div class="showUser__name">
+        <%= @user.name %>
+      </div>
+      <div class="showUser__email">
+        <%= @user.email %>
+      </div>
+    </div>
+    <div class="col-xs-4 showFollow showFollow--follow">
+      <h3>フォロー一覧</h3>
+      <% @follow.each do |f| %>
+        <div class ="row">
+          <div class="col-xs-4 showFollow__avatar">
+            <% if f.avatar? %>
+              <%= image_tag f.avatar %>
+            <% else %>
+              <%= image_tag "no_image.png" %>
+            <% end %>
+          </div>
+          <div class="col-xs-8 showFollow__name">
+            <%= f.name %><br>
+            <%= f.email %>
+          </div>
+        </div>
       <% end %>
     </div>
-    <div class="showUser__name">
-      <%= @user.name %>
+    <div class="col-xs-4 showFollow showFollow--follower">
+      <h3>フォロワー一覧</h3>
+      <% @followed.each do |f| %>
+        <div class ="row">
+          <div class="col-xs-4 showFollow__avatar">
+            <% if f.avatar? %>
+              <%= image_tag f.avatar %>
+            <% else %>
+              <%= image_tag "no_image.png" %>
+            <% end %>
+          </div>
+          <div class="col-xs-8 showFollow__name">
+            <%= f.name %><br>
+            <%= f.email %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <div class="showUser__email">
-      <%= @user.email %>
-    </div>
-  </div>
-
-  <div class="col-xs-4 showFollow showFollow--follow">
-    <h3>フォロー一覧</h3>
-    <% @follow.each do |f| %>
-      <div class ="row">
-        <div class="col-xs-4 showFollow__avatar">
-          <% if f.avatar? %>
-            <%= image_tag f.avatar %>
-          <% else %>
-            <%= image_tag "no_image.png" %>
-          <% end %>
-        </div>
-        <div class="col-xs-8 showFollow__name">
-          <%= f.name %><br>
-          <%= f.email %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-xs-4 showFollow showFollow--follower">
-    <h3>フォロワー一覧</h3>
-    <% @followed.each do |f| %>
-      <div class ="row">
-        <div class="col-xs-4 showFollow__avatar">
-          <% if f.avatar? %>
-            <%= image_tag f.avatar %>
-          <% else %>
-            <%= image_tag "no_image.png" %>
-          <% end %>
-        </div>
-        <div class="col-xs-8 showFollow__name">
-          <%= f.name %><br>
-          <%= f.email %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
