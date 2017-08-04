@@ -11,12 +11,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to blog_path(@blog), notice: 'コメントを投稿しました。' }
         # JS形式でレスポンスを返します。
         format.js { render :index }
-        unless @comment.blog.user_id == current_user.id
-          Comment.push_comment(@comment)
-        end
-        Pusher.trigger("user_#{@comment.blog.user_id}_channel", 'notification_created', {
-          unread_counts: Notification.where(user_id: @comment.blog.user.id, read: false).count
-        })
+        push_comment
       else
         format.html { render :new }
       end
@@ -55,5 +50,13 @@ class CommentsController < ApplicationController
     # ストロングパラメーター
     def comment_params
       params.require(:comment).permit(:blog_id, :content)
+    end
+    def push_comment
+      unless @comment.blog.user_id == current_user.id
+        Comment.push_comment(@comment)
+      end
+      Pusher.trigger("user_#{@comment.blog.user_id}_channel", 'notification_created', {
+        unread_counts: Notification.where(user_id: @comment.blog.user.id, read: false).count
+      })
     end
 end

@@ -53,6 +53,7 @@
         <% if user_signed_in? %>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
           <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+          <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
           <li>
             <%= link_to notifications_index_path, class: "navbar-brand" ,id:"test" do %>
             <% if @notifications_count > 0 %>

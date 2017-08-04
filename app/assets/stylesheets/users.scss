@@ -1,0 +1,93 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//ユーザー一覧の詳細デザイン
+//命名規則　
+//.block {} // 親要素
+//.block__element {} // 子要素
+//.block--modifier {} // 親要素のバージョン違い
+//.block__element--modifier {} // 子要素のバージョン違い
+
+//今回お試し　メディアスクリーンごとのmixin
+
+@mixin mq-pc {
+    @media screen and (min-width: 980px) {
+        @content;
+    }
+}
+@mixin mq-tablet {
+    @media screen and (min-width: 768px) and (max-width: 979px)  {
+        @content;
+    }
+}
+@mixin mq-phone {
+    @media screen and (max-width: 767px){
+        @content;
+    }
+}
+@mixin ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.showUser {
+  padding:5px;
+  min-width:200px;
+    &--index {
+    }
+    &__avatar{
+      img{width: 150px;
+        @include mq-phone{
+          width: 100px;
+        }
+      }
+      &--large{
+        img{width: 300px;}
+      }
+    }
+    &__name{
+      font-size:1.5em;
+      margin:10px;
+    }
+    &__email{
+    }
+    &__followButton{
+    }
+}
+.showFollow {
+  >.row{
+    padding-bottom: 5px;
+
+    }
+    &--folow {
+        background:red;
+    }
+    &--folower {
+        background:blue;
+    }
+    &__avatar{
+      img{width: 100px;}
+    }
+    &__name{
+      height: 50px;
+      text-align: left;
+      @include ellipsis;
+    }
+    &__email{
+    }
+}
+
+.showUser{}
+.showUser--index{}
+.showUser
+.showUser__name{}
+.showUser__email{}
+.showUser__followButton{}
+.showFollow{}
+.showFollow--folow{}
+.showFollow--follower{}
+.showFollow__avatar{}
+.showFollow__name{}
+.showFollow__email{}
