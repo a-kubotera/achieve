@@ -33,17 +33,15 @@ class User < ActiveRecord::Base
     user = User.find_by(provider: auth.provider, uid: auth.uid)
 
     unless user
-      @email = auth.info.email
-      if @email.blank?
-        @email = "#{auth.uid}-#{auth.provider}@example.com"
-      end
+      #E-mailアドレス未登録の場合、自動生成する。これがないとサイレントエラーが発生する！
+      email = auth.info.email.blank? ? "#{auth.uid}-#{auth.provider}@example.com" : auth.info.email
       user = User.new(
           name:     auth.info.nickname,
           image_url: auth.info.image,
           provider: auth.provider,
           uid:      auth.uid,
           #email:    auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
-          email:    @email ,
+          email:    email ,
           password: Devise.friendly_token[0, 20]
       )
       user.skip_confirmation!
