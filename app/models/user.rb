@@ -33,12 +33,17 @@ class User < ActiveRecord::Base
     user = User.find_by(provider: auth.provider, uid: auth.uid)
 
     unless user
+      @email = auth.info.email
+      if @email.blank?
+        @email = "#{auth.uid}-#{auth.provider}@example.com"
+      end
       user = User.new(
           name:     auth.info.nickname,
           image_url: auth.info.image,
           provider: auth.provider,
           uid:      auth.uid,
-          email:    auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
+          #email:    auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
+          email:    @email ,
           password: Devise.friendly_token[0, 20]
       )
       user.skip_confirmation!
@@ -67,5 +72,5 @@ class User < ActiveRecord::Base
   end
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
-  end  
+  end
 end
