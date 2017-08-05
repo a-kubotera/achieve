@@ -4,7 +4,6 @@ TOPIX
 Additional PermissionsのRequest email addresses from users　にチェック
 ただしこの場合、メールアドレス未登録の場合に謎エラー起こすため、OmniauthCallbacksControllerを修正する。
 
-~~~ruby
 def twitter
   # You need to implement the method below in your model
   @user = User.find_for_twitter_oauth(request.env["omniauth.auth"], current_user)
@@ -16,4 +15,3 @@ def twitter
     redirect_to new_user_registration_url
   end
 end
-~~~
