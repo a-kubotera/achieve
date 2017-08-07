@@ -15,3 +15,13 @@ Additional PermissionsのRequest email addresses from users　にチェック
         )
     ・・・・
   end
+
+●bundle install のキホン
+bundle install --path vendor/bundle
+と記述すると、railsアプリのルートディレクトリの下のvendor/bundleディレクトリにインストールされ、そのアプリケーションの中だけにインストールされる。
+一度上のコマンドを実行すれば、Bundlerはインストール先を記憶するので次回以降は
+bundle install
+を実行するだけで毎回vendor/bundleディレクトリにインストールされる。
+因みに、Bundlerはgemのインストール先を、railsアプリのルートディレクトリの下の、「.bundle/config」というファイルで記憶している。コマンド「cat .bundle/config」で中身を見れる。
+個別のRailsアプリにインストールされているgemの一覧を見るには以下のコマンドを使う。
+bundle list
