@@ -17,6 +17,19 @@
       <div class="field">
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード（確認）" %>
       </div>
+      <table cellpadding="8" cellspacing="0" class="wiounc">
+        <colgroup><col width="200" /><col /></colgroup>
+        <tr>
+          <th>
+            <input type="text" id="defaultReal" name="defaultReal" class="hidden" />
+          </th>
+          <td>
+            <?php echo $captchaExplanation; ?><br />
+            <input type="text" name="defaultReal" id="Answer"  maxlength="6" />
+            <div id="captchaErrorMsg"></div>
+          </td>
+        </tr>
+      </table>
       <div class="actions">
         <%= f.submit "サインアップ", class: "btn btn-primary btn-block" %>
       </div>
@@ -24,3 +37,30 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+<script>
+  var question = "";
+  function Captcha(){
+      var answer = document.getElementById("Answer").value;
+      var msg = "";
+    var captchaKB = <?php echo $captcha; ?>;
+    if(captchaKB === 1){
+      if(Isset(answer) && Isset(question)){
+        if(answer === ''){
+          msg = "<?php echo $requireError['captcha']; ?>";
+        }else if(question !== answer){
+          msg = "<?php echo $captchaMsg_Faild; ?>";
+        }else{
+          target.submit();
+        }
+        ChangeTxt(msg);
+        return false;
+      }
+    }
+  }
+  function ChangeTxt(txt) {
+    document.getElementById("captchaErrorMsg").innerHTML=txt;
+  }
+  function Isset( data ){
+    return ( typeof( data ) != 'undefined' );
+  }
+</script>

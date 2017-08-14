@@ -1,4 +1,4 @@
-TOPIX
+TOPIX---
 
 ●Twitter　OAuthの設定
 Additional PermissionsのRequest email addresses from users　にチェック
@@ -25,3 +25,7 @@ bundle install
 因みに、Bundlerはgemのインストール先を、railsアプリのルートディレクトリの下の、「.bundle/config」というファイルで記憶している。コマンド「cat .bundle/config」で中身を見れる。
 個別のRailsアプリにインストールされているgemの一覧を見るには以下のコマンドを使う。
 bundle list
+
+●　超基本
+　1. workspace内でrails new アプリ名
+　2.
