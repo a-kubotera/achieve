@@ -36,6 +36,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Rspec
 group :development do
   gem 'web-console', '~> 2.0'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+group :test do
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
 end
 
 group :development, :test do
@@ -53,25 +63,18 @@ group :development, :test do
 
   gem "rspec-rails"
   gem "factory_girl_rails"
+  gem 'letter_opener_web'
 end
 
 gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'
 gem 'rails_12factor', group: :production
 gem 'devise'
-
-group :development,:test do
-  gem 'letter_opener_web'
-  gem 'pry-rails'
-  gem 'better_errors'
-end
-
 gem 'faker','~> 1.1.2'
 gem 'rails_admin'
 gem 'cancan'
 gem 'activeresource'
 gem 'her'
-
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
@@ -83,10 +86,3 @@ gem 'pusher'
 gem 'fog'
 gem 'dotenv-rails'
 gem 'unicorn'
-
-group :test do
-  gem "capybara"
-  gem "database_cleaner"
-  gem "launchy"
-  gem "selenium-webdriver"
-end
