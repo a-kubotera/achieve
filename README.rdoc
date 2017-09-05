@@ -27,5 +27,12 @@ bundle install
 bundle list
 
 ●　超基本
-　1. workspace内でrails new アプリ名
-　2.
+　1. workspace内で rails _[Ver.]_ new [アプリ名] -d postgresql --skip-bundle
+　2. bundle install --path vendor/bundle　
+　3. rails g scaffold 　
+　　　http://maeharin.hatenablog.com/entry/20130212/rails_generate
+　4. Deviceインストール
+　5. メール認証機能実装
+　5. SNSログイン
+
+　5. アソシエーション
