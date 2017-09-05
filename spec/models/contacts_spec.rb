@@ -13,7 +13,7 @@ describe Contact do
     expect(contact).not_to be_valid
   end
 
-  # メアドがないとエラーが発生すること
+  # メアドがないとエラーが発生すること　
   it "is invalid without a mail" do
     contact = Contact.new(name: 'testName', email: '',content:'testContent')
     expect(contact).not_to be_valid
